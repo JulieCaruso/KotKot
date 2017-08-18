@@ -28,8 +28,6 @@ class NewsManager {
                                         })
                                 subscriber.onNext(news)
                                 subscriber.onComplete()
-
-
                             },
                             { e ->
                                 subscriber.onError(e)
