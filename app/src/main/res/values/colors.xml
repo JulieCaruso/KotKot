@@ -7,4 +7,6 @@
     <color name="brown">#662113</color>
     <color name="yellow">#FFCC4D</color>
     <color name="orange">#FFAC33</color>
+    <color name="very_light_yellow">#10FFCC4D</color>
+    <color name="light_yellow">#20FFCC4D</color>
 </resources>

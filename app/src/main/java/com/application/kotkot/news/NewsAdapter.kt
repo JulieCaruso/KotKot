@@ -1,8 +1,10 @@
 package com.application.kotkot.news
 
+import android.support.v4.content.ContextCompat
 import android.support.v4.util.SparseArrayCompat
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import com.application.kotkot.R
 import com.application.kotkot.network.NewsItem
 import com.application.kotkot.utils.ui.AdapterConstants
 import com.application.kotkot.utils.ui.LoadingDelegateAdapter
@@ -32,6 +34,12 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         delegateAdapters.get(getItemViewType(position)).onBindViewHolder(holder, items.get(position))
+        if (getItemViewType(position) == AdapterConstants.NEWS)
+            if (position % 2 != 0)
+                holder.itemView.background = ContextCompat.getDrawable(holder.itemView.context, R.color.light_yellow)
+            else
+                holder.itemView.background = ContextCompat.getDrawable(holder.itemView.context, R.color.very_light_yellow)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =

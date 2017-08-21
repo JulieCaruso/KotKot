@@ -17,7 +17,6 @@ class NewsDelegateAdapter : ViewTypeDelegateAdapter {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType) {
         holder as NewsViewHolder
         holder.bind(item as NewsItem)
-
     }
 
     class NewsViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder
@@ -31,7 +30,9 @@ class NewsDelegateAdapter : ViewTypeDelegateAdapter {
             else
                 Picasso.with(itemView.context)
                         .load(item.thumbnail)
+                        .error(R.drawable.babychick)
                         .into(image)
+
             title.text = item.title
             author.text = item.author
         }
