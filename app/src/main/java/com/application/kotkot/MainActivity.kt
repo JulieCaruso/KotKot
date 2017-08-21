@@ -3,7 +3,7 @@ package com.application.kotkot
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.application.kotkot.news.NewsActivity
+import com.application.kotkot.news.list.NewsActivity
 
 import kotlinx.android.synthetic.main.activity_main.*;
 

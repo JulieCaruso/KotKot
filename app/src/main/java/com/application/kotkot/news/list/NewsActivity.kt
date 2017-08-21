@@ -1,4 +1,4 @@
-package com.application.kotkot.news
+package com.application.kotkot.news.list
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

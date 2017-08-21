@@ -1,4 +1,4 @@
-package com.application.kotkot.news
+package com.application.kotkot.news.list
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.application.kotkot.R
 import com.application.kotkot.network.News
+import com.application.kotkot.news.NewsManager
 import com.application.kotkot.utils.ui.InfiniteScrollListener
 import kotlinx.android.synthetic.main.fragment_news.*
 
@@ -25,7 +26,7 @@ class NewsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recycler.setHasFixedSize(true)
         recycler.layoutManager = LinearLayoutManager(context)
-        recycler.adapter = NewsAdapter()
+        recycler.adapter = NewsAdapter(activity)
         recycler.addOnScrollListener(InfiniteScrollListener({ requestNews() }, recycler.layoutManager as LinearLayoutManager))
 
         if (savedInstanceState != null) {

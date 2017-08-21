@@ -1,5 +1,6 @@
-package com.application.kotkot.news
+package com.application.kotkot.news.list
 
+import android.content.Context
 import android.support.v4.content.ContextCompat
 import android.support.v4.util.SparseArrayCompat
 import android.support.v7.widget.RecyclerView
@@ -11,7 +12,7 @@ import com.application.kotkot.utils.ui.LoadingDelegateAdapter
 import com.application.kotkot.utils.ui.ViewType
 import com.application.kotkot.utils.ui.ViewTypeDelegateAdapter
 
-class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class NewsAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: ArrayList<ViewType>
 
@@ -23,7 +24,7 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     init {
         delegateAdapters.put(AdapterConstants.LOADING, LoadingDelegateAdapter())
-        delegateAdapters.put(AdapterConstants.NEWS, NewsDelegateAdapter())
+        delegateAdapters.put(AdapterConstants.NEWS, NewsDelegateAdapter(context))
         items = ArrayList()
         items.add(loadingItem)
     }
@@ -34,12 +35,6 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         delegateAdapters.get(getItemViewType(position)).onBindViewHolder(holder, items.get(position))
-        if (getItemViewType(position) == AdapterConstants.NEWS)
-            if (position % 2 != 0)
-                holder.itemView.background = ContextCompat.getDrawable(holder.itemView.context, R.color.light_yellow)
-            else
-                holder.itemView.background = ContextCompat.getDrawable(holder.itemView.context, R.color.very_light_yellow)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
