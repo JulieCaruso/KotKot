@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">KotKot</string>
+
+
+    <string name="permission_camera_details">Access to the camera is needed for detection.</string>
+    <string name="ok">OK</string>
+
+    <string name="no_internet_error">Text detector dependencies cannot be downloaded due to no internet</string>
+    <string name="low_storage_error">Text detector dependencies cannot be downloaded due to low device storage</string>
 </resources>
