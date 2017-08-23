@@ -1,4 +1,4 @@
-package com.application.kotkot.photo
+package com.application.kotkot.scan
 
 import android.util.Log
 import com.google.android.gms.vision.Detector

@@ -1,4 +1,4 @@
-package com.application.kotkot.photo
+package com.application.kotkot.scan
 
 import android.Manifest
 import android.content.Intent
@@ -12,13 +12,14 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
 import com.application.kotkot.R
+import com.application.kotkot.utils.OpenAlprUtils
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.text.TextRecognizer
-import kotlinx.android.synthetic.main.activity_photo.*
+import kotlinx.android.synthetic.main.activity_scan.*
 import java.io.IOException
 
 
-class PhotoActivity : AppCompatActivity() {
+class ScanActivity : AppCompatActivity() {
     companion object {
         val EXTRA_TYPE_CAPTURE = "EXTRA_TYPE_CAPTURE"
         val TYPE_VISION = 1
@@ -26,7 +27,7 @@ class PhotoActivity : AppCompatActivity() {
         val TYPE_OPEN_ALPR = 3
     }
 
-    val TAG = "PhotoActivity"
+    val TAG = "ScanActivity"
     val REQUEST_PERMISSION_CAMERA = 10
 
     var type = TYPE_VISION
@@ -34,23 +35,22 @@ class PhotoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_photo)
+        setContentView(R.layout.activity_scan)
 
         type = intent?.getIntExtra(EXTRA_TYPE_CAPTURE, TYPE_VISION) ?: TYPE_VISION
 
         capture.setOnClickListener {
             cameraSource?.takePicture(
-                    {
-                        Log.d("azerty", "1")
-                    },
-                    {
-                        Log.d("azerty", "2")
+                    {},
+                    {image ->
+                        val file = OpenAlprUtils.writeFile(image)
+                        Log.d("azerty", OpenAlprUtils.create(this, file))
                     })
         }
 
-        //if (type == TYPE_VISION) {
-        //    capture.visibility = View.GONE
-        //}
+        /*if (type == TYPE_VISION) {
+            capture.visibility = View.GONE
+        }*/
     }
 
     override fun onResume() {

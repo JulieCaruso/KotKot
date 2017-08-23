@@ -4,9 +4,9 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.application.kotkot.photo.PhotoActivity">
+    tools:context="com.application.kotkot.scan.ScanActivity">
 
-    <com.application.kotkot.photo.CameraSourcePreview
+    <com.application.kotkot.scan.CameraSourcePreview
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

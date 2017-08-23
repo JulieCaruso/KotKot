@@ -41,7 +41,10 @@ dependencies {
 
     // Vision
     compile 'com.google.android.gms:play-services-vision:11.0.4'
+
+    compile 'com.github.SandroMachado:openalpr-android:1.1.2'
 }
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
 }

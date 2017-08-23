@@ -1,4 +1,4 @@
-package com.application.kotkot.photo
+package com.application.kotkot.scan
 
 import android.content.Context
 import android.content.res.Configuration

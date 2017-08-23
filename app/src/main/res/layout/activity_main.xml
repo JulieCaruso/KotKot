@@ -27,11 +27,11 @@
         app:layout_constraintTop_toBottomOf="@+id/text" />
 
     <Button
-        android:id="@+id/photo"
+        android:id="@+id/scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Photo"
+        android:text="Scan"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/doglist" />
