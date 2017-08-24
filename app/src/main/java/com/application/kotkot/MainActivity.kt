@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.application.kotkot.news.list.NewsActivity
+import com.application.kotkot.photo.PhotoActivity
 import com.application.kotkot.scan.ScanActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         }
         scan.setOnClickListener {
             startActivity(Intent(this, ScanActivity::class.java))
+        }
+        photo.setOnClickListener {
+            startActivity(Intent(this, PhotoActivity::class.java))
         }
     }
 }

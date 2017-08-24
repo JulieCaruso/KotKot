@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.ViewGroup
+import com.application.kotkot.utils.ui.UiUtils
 import com.google.android.gms.vision.CameraSource
 import java.io.IOException
 
@@ -83,7 +84,7 @@ class CameraSourcePreview : ViewGroup {
         }
 
         // Swap width and height sizes when in portrait, since it will be rotated 90 degrees
-        if (isPortraitMode()) {
+        if (UiUtils.isPortraitMode(context)) {
             val tmp = width
             width = height
             height = tmp
@@ -115,19 +116,6 @@ class CameraSourcePreview : ViewGroup {
             Log.e(TAG, "Could not start camera source.", e)
         }
 
-    }
-
-    private fun isPortraitMode(): Boolean {
-        val orientation = context.resources.configuration.orientation
-        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            return false
-        }
-        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            return true
-        }
-
-        Log.d(TAG, "isPortraitMode returning false by default")
-        return false
     }
 
 }
